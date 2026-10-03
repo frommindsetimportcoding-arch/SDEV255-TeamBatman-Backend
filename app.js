@@ -1,0 +1,19 @@
+const express = require("express");
+const cors = require("cors");
+require("dotenv").config();
+require("./db");
+
+const app = express();
+
+// Middleware
+app.use(cors());
+app.use(express.json()); // Parses incoming JSON requests
+
+app.get("/", (req, res) => {
+  res.send("Team Batman is live and listening");
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running locally on http://localhost:${PORT}`);
+});
