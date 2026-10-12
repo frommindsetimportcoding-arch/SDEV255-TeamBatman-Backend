@@ -20,9 +20,11 @@
   },
   "homepage": "https://github.com/frommindsetimportcoding-arch/SDEV255-TeamBatman-Backend#readme",
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "cors": "^2.8.6",
     "dotenv": "^18.0.5",
     "express": "^5.2.1",
+    "jwt-simple": "^0.5.6",
     "mongoose": "^9.10.4"
   },
   "devDependencies": {

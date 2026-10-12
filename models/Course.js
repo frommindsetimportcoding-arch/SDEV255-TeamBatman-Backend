@@ -11,12 +11,20 @@ const CourseSchema = new mongoose.Schema({
     required: true,
     enum: ["Fall", "Spring", "Summer"],
   },
-  //   createdBy: {
-  //     type: mongoose.Schema.Types.ObjectId,
-  //     ref: "User",
-  //     required: true,
-  //   },
-  createdBy: { type: String, required: true },
+  // Building relationship with User Schema to grab Teacher Obj ID.
+  createdBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
+  students: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
+  // Delete after successful implementation of user schema logic.
+  // createdBy: { type: String, required: true },
 });
 
 module.exports = mongoose.model("Course", CourseSchema);
