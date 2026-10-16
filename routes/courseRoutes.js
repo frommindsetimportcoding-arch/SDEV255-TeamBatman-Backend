@@ -12,7 +12,10 @@ const authenticateToken = require("../middleware/auth");
 //  READ ALL - GET: Grabs all course objects. (Public)
 router.get("/", async (req, res) => {
   try {
-    const courses = await Course.find();
+    const courses = await Course.find().populate(
+      "createdBy",
+      "firstName lastName email",
+    );
     res.json(courses);
   } catch (err) {
     res.status(500).json({ error: err.message });
