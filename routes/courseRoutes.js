@@ -52,7 +52,11 @@ router.get("/teacher", authenticateToken, async (req, res) => {
   }
 
   try {
-    const courses = await Course.find({ createdBy: req.user.userId });
+    const courses = await Course.find({ createdBy: req.user.userId }).populate(
+      "students",
+      "firstName lastName email username",
+    );
+
     res.json(courses);
   } catch (err) {
     res.status(500).json({ error: err.message });

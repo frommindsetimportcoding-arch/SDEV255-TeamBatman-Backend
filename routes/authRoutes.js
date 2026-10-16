@@ -67,6 +67,8 @@ router.post("/", async (req, res) => {
     res.json({
       username: user.username,
       firstName: user.firstName,
+      lastName: user.lastName,
+      role: user.role,
       token,
       auth: 1,
     });
